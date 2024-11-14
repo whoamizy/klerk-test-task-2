@@ -1,3 +1,4 @@
 import AppContainer from './app-container/index.vue'
+import AppCheck from './app-check/index.vue'
 
-export { AppContainer }
+export { AppContainer, AppCheck }

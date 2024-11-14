@@ -1,24 +1,19 @@
 <template>
   <ul class="flex gap-4">
-    <li
+    <AppTabItem
       v-for="(item, idx) in items"
       :key="idx"
-      @click="changeTab(item, idx)"
-      class="px-2 pb-4 border-b-2 border-transparent text-base text-[#666] inline-block cursor-pointer"
-      :class="{ 'border-[#5A8CF1] !text-[#5A8CF1] font-medium': activeTab === idx }"
-    >
-      {{ item.text }}
-    </li>
+      :tab="item"
+      :is-active="activeTab === idx"
+      @change-tab="changeTab(idx)"
+    />
   </ul>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-
-interface Tab {
-  text: string
-  path: string
-}
+import type { Tab } from '../model'
+import AppTabItem from './app-tab-item.vue'
 
 const items = ref<Tab[]>([
   {
@@ -37,8 +32,7 @@ const items = ref<Tab[]>([
 
 const activeTab = ref(0)
 
-const changeTab = (tab: Tab, idx: number) => {
+const changeTab = (idx: number) => {
   activeTab.value = idx
-  console.log('Go to:', tab.path)
 }
 </script>
