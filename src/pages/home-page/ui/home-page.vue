@@ -1,5 +1,9 @@
 <template>
   <div>
-    <h1 class="text-3xl font-bold underline text-red-500">Hello world!</h1>
+    <AppHeader />
   </div>
 </template>
+
+<script lang="ts" setup>
+import { AppHeader } from '@/widgets/header'
+</script>
